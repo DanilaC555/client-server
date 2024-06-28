@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список студентов</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script defer type="module" src="main.js"></script>
+</head>
+<body>
+  <div class="container p-3">
+    <!-- форма -->
+    <form id="student-form">
+      <div class="mb-3 row">
+        <label for="name" class="col-sm-2 col-form-label">Имя</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="name">
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="surname" class="col-sm-2 col-form-label">Фамилия</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="surname">
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="patronymic" class="col-sm-2 col-form-label">Отчество</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="patronymic">
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="faculty" class="col-sm-2 col-form-label">Факультет</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="faculty">
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="date-birth" class="col-sm-2 col-form-label">Дата рождения</label>
+        <div class="col-sm-10">
+          <input type="date" class="form-control" id="date-birth">
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="year-commencement" class="col-sm-2 col-form-label">Год начала обучения</label>
+        <div class="col-sm-10">
+          <input type="number" class="form-control" id="year-commencement">
+        </div>
+      </div>
+      <div class="col-auto">
+        <button type="submit" class="btn btn-primary mb-3">Применить</button>
+      </div>
+    </form>
+    <!-- Фильтры для поиска -->
+     <form id="form-filter" action="#">
+      <div class="row mb-3">
+        <h2 class="title">Фильтрация</h2>
+        <div class="col">
+          <input type="text" id="filter-name" class="form-control" placeholder="Ф.И.О.">
+        </div>
+        <div class="col">
+          <input type="text" id="filter-faculty" class="form-control" placeholder="Факультет">
+        </div>
+        <div class="col">
+          <input type="number" id="filter-start-year" class="form-control" placeholder="Год начала">
+        </div>
+        <div class="col">
+          <input type="number" id="filter-end-year" class="form-control" placeholder="Год окончания">
+        </div>
+      </div>
+    </form>
+    <!-- конпки сортировки -->
+    <div class="row mb-1">
+      <h2 class="title">Сортировка</h2>
+      <div class="col">
+        <button type="text" id="sort-fio" class="btn btn-dark">Ф.И.О.</button>
+      </div>
+      <div class="col">
+        <button type="text" id="sort-faculty" class="btn btn-dark">Факультет</button>
+      </div>
+      <div class="col">
+        <button type="number" id="sort-age" class="btn btn-dark">дата рождения</button>
+      </div>
+      <div class="col">
+        <button type="number" id="sort-start-year" class="btn btn-dark">год начала обучения</button>
+      </div>
+    </div>
+    <!-- таблица -->
+    <div class="table-block">
+      <table class="table table-bordered border-white table-dark table-striped">
+        <thead>
+          <tr>
+            <th scope="col" data-sort="name">Ф.И.О.</th>
+            <th scope="col" data-sort="faculty">Факультет</th>
+            <th scope="col" data-sort="dateBirth">Дата рождения и возраст</th>
+            <th scope="col" data-sort="yearCommencement">Годы обучения и номер курса</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody id="students-table-body">
+          <!-- список студентов -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>
